@@ -2,10 +2,24 @@
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace WebPWrecover.Services
 {
+    public class FileIOEmailSender : IEmailSender
+    {
+        public Task SendEmailAsync(string email, string subject, string htmlMessage)
+        {
+            var path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\..\\"))
+             + "EmailMessage.html";
+            //var path = AppContext.BaseDirectory;
+            File.WriteAllTextAsync(path, htmlMessage);
+            return Task.CompletedTask;
+        }
+    }
+
     public class EmailSender : IEmailSender
     {
         public EmailSender(IOptions<AuthMessageSenderOptions> optionsAccessor)

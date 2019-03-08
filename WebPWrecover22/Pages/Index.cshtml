@@ -8,3 +8,26 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<div>Testing Custom Token Provider</div>
+<br />
+Here are the Provider  Types as seen by the built-in UserManager
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>TokenProvidorDescriptor.ProviderType</th>
+    </tr>
+    @foreach (var provider in Model.ProviderMap)
+    {
+        <tr>
+            <td>@provider.Key</td>
+            <td>@provider.Value.ProviderType.Name</td>
+        </tr>
+    }
+</table>
+<br />
+<div>
+    The EmailConfirmationTokenProvider viewed by the UserManager is: <b>@Model.EmailConfirmationTokenProvider</b>
+</div>
+<div>
+    The PasswordResetTokenProvider viewed by the UserManager is: <b>@Model.PasswordResetTokenProvider</b>
+</div>

@@ -1,0 +1,13 @@
+﻿@page
+@model WebPWrecover.Areas.Identity.Pages.Account.EmailConfirmationRequiredModel
+@{
+}
+    <div>
+        You have @Model.EmailTokenLifeSpan.Minutes minutes and @Model.EmailTokenLifeSpan.Seconds seconds
+        to confirm your email because we are so great that we made your life harder by overriding
+        the default data protections token lifespan which is set
+        to @Model.DefaultTokenLifeSpan.Days Day
+    </div>
+<div>So please copy paste the bold text to the browser <b>@Model.PathToEmailFile</b></div>
+<div>If you are too slow to do this process we will just throw at you to show you that the token is not valid any more.
+    Welcome to the default UI ;)</div>

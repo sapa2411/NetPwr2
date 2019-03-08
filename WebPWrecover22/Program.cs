@@ -19,7 +19,9 @@ namespace WebPWrecover
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-               // .UseStartup<Startup>();
-               .UseStartup<StartupAppCookie>();
+                              // .UseStartup<Startup>();
+                              //.UseStartup<StartupAppCookie>();
+                              .UseStartup<StartupPonant>();
+
     }
 }
